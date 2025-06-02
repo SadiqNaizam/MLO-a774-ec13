@@ -1,7 +1,8 @@
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
-	darkMode: ["class"],
+	darkMode: ["class"], // Kept as per original, though PRD implies single theme
 	content: [
 		"./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",
@@ -52,22 +53,20 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+        // Removed sidebar colors as they are not in the PRD for this scope
+				// PRD specific color names (can be used directly or via the semantic mapping above)
+        primaryText: '#000000', // Mapped to card-foreground
+        secondaryText: '#6B7280', // Mapped to muted-foreground
+        accentBlue: '#00ADB5' // Mapped to primary and accent
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
+      fontFamily: {
+        sans: ['var(--font-sans)', ...fontFamily.sans],
+      },
 			keyframes: {
 				'accordion-down': {
 					from: {
